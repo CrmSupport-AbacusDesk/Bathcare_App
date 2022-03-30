@@ -103,7 +103,7 @@
     "file-transfer": "0.0.0",
     "phonegap-plugin-push": "^2.3.0",
     "polarcape-cordova-plugin-document-handler": "^1.1.1",
-    "typescript": "~2.6.2"
+    "typescript": "^3.2.2"
   },
   "description": "An Ionic project",
   "cordova": {
