@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "164818354927",
+    "project_id": "Bencardo-c8209",
+    "storage_bucket": "Bencardo-c8209.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:164818354927:android:2f2e4000d1778270cf111a",
+        "android_client_info": {
+          "package_name": "com.Bencardo.abacusdesk"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "164818354927-25qkoe7rs7ikqdf1jctfde0etge6odqc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDKEQAM9KZrLJWPNreP0o5pCCeQHV8sjPM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "164818354927-25qkoe7rs7ikqdf1jctfde0etge6odqc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

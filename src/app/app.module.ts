@@ -1,3 +1,4 @@
+import { SubCategoryPageModule } from './../pages/sub-category/sub-category.module';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA,NO_ERRORS_SCHEMA, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
@@ -275,6 +276,7 @@ export function createTranslateLoader(http: HttpClient) {
         SurveyListPageModule,
         SurveyDetailPageModule,
         HttpClientModule,
+        SubCategoryPageModule,
         TranslateModule.forRoot({
             loader: {
                 provide: TranslateLoader,

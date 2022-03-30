@@ -1,3 +1,4 @@
+import { SubCategoryPage } from './../sub-category/sub-category';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, Loading, LoadingController, App, InfiniteScroll } from 'ionic-angular';
 import { ProductsPage } from '../products/products';
@@ -25,12 +26,16 @@ export class CategoryPage {
   url:string=''
   constructor(public navCtrl: NavController, public navParams: NavParams,public service:DbserviceProvider,public loadingCtrl:LoadingController,private app:App) {
     this.skelton = new Array(10);
-    this.url = this.service.cat_img
+    this.url = this.service.category_url;
+    console.log(this.url);
+
+    
+
   }
+  
   
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProductsPage');
-    this.cat_id = this.navParams.get('id');
     this.presentLoading();
     this.getProductCategoryList('');
   }
@@ -63,7 +68,7 @@ export class CategoryPage {
       if(r['categories'].length == 1)
       {
         console.log('list length is one');
-        this.navCtrl.push(ProductDetailPage,{'id':r['categories'][0].id})
+        this.navCtrl.push(SubCategoryPage,{'id':r['categories'][0].id})
     
       }
       else{
@@ -119,11 +124,11 @@ export class CategoryPage {
 
     presentLoading() 
     {
-      this.loading = this.loadingCtrl.create({
-        content: "Please wait...",
-        dismissOnPageChange: false
-      });
-      this.loading.present();
+      // this.loading = this.loadingCtrl.create({
+      //   content: "Please wait...",
+      //   dismissOnPageChange: false
+      // });
+      // this.loading.present();
     }
     presentLoading2() 
     {
@@ -199,66 +204,23 @@ export class CategoryPage {
   
     //   }, 500);
     // }
-    getProductCategoryList1(search)
-    {
-      console.log('catagorylist');
-    this.filter.search=search;
-      this.filter.limit = 0;
-      // this.filter.id=id;
-      this.service.post_rqst({'filter' : this.filter},'app_master/parentCategory_List')
-      .subscribe((r) =>
-      {
-        // this.loading.dismiss();
-        console.log(r);
-        this.prod_cat_list=r['categories'];
-        // this.prod_cat_list.main_category == "Eco Taps" 
-        this.prod_cat_list.length
-        
-  
-        for (let index = 0; index < this.prod_cat_list.length; index++) {
-                   this.sklton = this.prod_cat_list[index]
-
-                   console.log("this.sklton ======>",this.prod_cat_list.length );
-                   console.log("this.sklton.main_category",this.prod_cat_list.main_category);
-                
-                   
-          this.prod_cat_list.length
-          
-            // else
-            // {
-            //   this.no_rec = false;
-            // }
-          this.getCategoryImages(this.prod_cat_list[index]['main_category'],index)
-        }
-      },(error: any) => {
-        // this.loading.dismiss();
-      }
-      );
-      
-    }
     
     getProductCategoryList(search)
     {
-      console.log('search',search);
-      this.filter.search=search;
+      this.presentLoading2();
+      console.log('catagorylist');
       this.filter.limit = 0;
-      
+      this.filter.search=search;
       this.service.post_rqst({'filter' : this.filter},'app_master/parentCategory_List')
       .subscribe((r) =>
       {
         // this.loading.dismiss();
         console.log(r);
-        this.prod_cat_list=r['categories'];
-        // this.prod_cat_list.main_category == "Eco Taps" 
-        this.prod_cat_list.length
-        if(this.prod_cat_list.length == 0)
-        {
-          this.no_rec = true;
-        }
-        else
-        {
-          this.no_rec = false;
-        }
+      this.loading.dismiss();
+        this.prod_cat_list=r['category'];
+        console.log(this.prod_cat_list);
+        console.log( this.prod_cat_list.length);
+        
         
   
         for (let index = 0; index < this.prod_cat_list.length; index++) {
@@ -276,13 +238,13 @@ export class CategoryPage {
             // }
           this.getCategoryImages(this.prod_cat_list[index]['main_category'],index)
         }
-        this.loading.dismiss();
       },(error: any) => {
-        
+        // this.loading.dismiss();
       }
       );
       
     }
+
 
   }
   

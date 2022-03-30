@@ -30,7 +30,9 @@ export class DbserviceProvider {
       public upload_url: string = this.rootUrl;
       public upload_url1: string = 'http://apps.abacusdesk.com/Bathcare/crm/api/uploads/';                           
       public upload_url2: string = 'http://apps.abacusdesk.com/Bathcare/uploads/order-invoice/';                           
-      public upload_url3: string = 'http://apps.abacusdesk.com/Bathcare/dd_api/app/uploads/';                              
+      public upload_url3: string = 'http://apps.abacusdesk.com/Bathcare/dd_api/app/uploads/';      
+      public category_url: string = 'http://apps.abacusdesk.com/Bathcare/dd_api/app/Http/Controllers/Admin/Master/appOfflineUploads/imageCatalogue/';                   
+
       
       
       
